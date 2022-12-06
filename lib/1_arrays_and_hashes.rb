@@ -167,7 +167,7 @@ end
 # returns {'vocalist' => 'miss piggy', 'lead_guitar' => 'scooter', 'drummer' => 'kermit'}
 def new_drummer(value)
   hash = {'vocalist' => 'miss piggy', 'lead_guitar' => 'scooter'}
-  hash.merge!('drummer'.to_s: value)
+  hash["drummer"] = value
   hash
 end
 
@@ -177,6 +177,12 @@ end
 # arg one: the name of a tube station e.g. 'Aldgate East'
 # arg two: a date and time e.g. '2022/01/30 17:12'
 # returns a hash with key-value pairs for 'entrypoint' and 'time'
+def touch_in(tube_station, date_time)
+  hash = {}
+  hash["entrypoint"] = tube_station
+  hash["time"] = date_time
+  hash
+end
 
 ### Focus: Changing the value of an existing key-value pair in a hash
 
@@ -187,23 +193,40 @@ end
 # the existing band members are: {'vocalist' => 'miss piggy', 'lead_guitar' => 'scooter'}
 # if the arg is 'waldo'
 # returns {'vocalist' => 'waldo', 'lead_guitar' => 'scooter'}
+def new_vocalist(value)
+  hash = {"vocalist" => "miss piggy", "lead_guitar" => "scooter"}
+  hash["vocalist"] = value
+  hash
+end
 
 ### Focus: Using the Ruby docs to find the right method/s
 
 # all_values
 # takes one hash as an arg
 # returns the values
+def all_values(hash)
+  hash.values
+end
 
 # all_keys
 # takes one hash as an arg
 # returns the keys
+def all_keys(hash)
+  hash.keys
+end
 
 # remove_nils_from_hash
 # takes one hash an an arg
 # removes key-value pairs where the value is nil
 # returns the remaining key-value pairs as a hash
+def remove_nils_from_hash(hash)
+  hash.compact!
+end
 
 # key_value_swap
 # takes one hash as an arg
 # swaps the keys with the values
 # returns the new hash
+def key_value_swap(hash)
+  hash.invert
+end

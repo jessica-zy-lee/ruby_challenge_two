@@ -38,17 +38,33 @@ end
 
 # Animal
 # no methods required
+class Animal
+
+end
 
 # Vehicle
 # no methods required
+class Vehicle
+
+end
 
 # Cat
 # speak
 # returns 'miaow'
+class Cat
+  def speak
+    "miaow"
+  end
+end
 
 # Dog
 # speak
 # returns 'woof'
+class Dog
+  def speak
+    "woof"
+  end
+end
 
 # StringFormatter
 # block_caps
@@ -57,6 +73,15 @@ end
 # lower_case
 # takes a string as an arg
 # returns the string in lower case
+class StringFormatter
+  def block_caps(string)
+    string.upcase
+  end
+
+  def lower_case(string)
+    string.downcase
+  end
+end
 
 # Calculator
 # add
@@ -74,6 +99,23 @@ end
 # takes two numbers as args
 # divides the first by the second
 # returns the result
+class Calculator
+  def add(number1, number2)
+    total = number1 + number2
+  end
+
+  def multiply(number1, number2)
+    result = number1 * number2
+  end
+
+  def subtract(number1, number2)
+    result = number1 - number2
+  end
+
+  def divide(number1, number2)
+    result = number1 / number2
+  end
+end
 
 # Apprentice
 # is instantiated with two strings
@@ -85,6 +127,24 @@ end
 # full_details
 # returns name and cohort, separated by one comma and one space
 # 'E.g. "Rita Smith, June 2030"'
+class Apprentice
+  def initialize(name1, cohort1)
+    @name1 = name1
+    @cohort1 = cohort1
+  end
+
+  def name
+    @name1
+  end
+
+  def cohort
+    @cohort1
+  end
+
+  def full_details
+    "#{@name1}, #{@cohort1}"
+  end
+end
 
 # Cohort
 # is instantiated with three strings
@@ -97,3 +157,27 @@ end
 # returns the end_date as a Date object
 # duration
 # returns the number of days between start_date and end_date
+
+class Cohort
+  def initialize(name1, start_date1, end_date1)
+    @name = name1
+    @start_date = start_date1
+    @end_date = end_date1
+  end
+
+  def name
+    @name
+  end
+
+  def start_date
+    Date.strptime(@start_date, "%Y/%m/%d")
+  end
+
+  def end_date
+    Date.strptime(@end_date, "%Y/%m/%d")
+  end
+
+  def duration
+    end_date - start_date
+  end
+end
